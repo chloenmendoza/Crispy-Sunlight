@@ -1,0 +1,12 @@
+html, body
+{
+    font-family: 'Courier New', Courier, monospace;
+    background-color: blue;
+    text-align: center;
+}
+
+h1
+{
+    font-size: 2em;
+    color: #333;
+}
