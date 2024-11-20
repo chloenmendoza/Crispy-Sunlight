@@ -1,35 +1,41 @@
 body {
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    background-color: #f0f0f0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: url('Background.jpeg') no-repeat center center;
+  background-size: cover;
 }
 
-.grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 10px;
-    max-width: 100%;
+.window {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 10px; /* Adjust for spacing between panes */
+  width: 600px; /* Adjust width according to your background */
+  height: 400px; /* Adjust height according to your background */
 }
 
-.image-container {
-    width: 100%;
-    aspect-ratio: 16 / 9;
-    overflow: hidden;
-    position: relative;
-    cursor: pointer;
+.pane {
+  border: 1px solid #ccc; /* Optional border to define panes */
+  overflow: hidden;
+  position: relative;
 }
 
-.image-container img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: opacity 0.3s ease;
+.pane img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures the image fits without distortion */
+  transition: transform 0.3s ease;
 }
 
-.image-container:active img {
-    content: url("https://wallpapers.com/images/hd/1920-x-1080-hd-1qq8r4pnn8cmcew4.jpg");
+.pane img:hover {
+  transform: scale(1.05); /* Optional zoom effect on hover */
+}
+
+.pane a {
+  display: block;
+  width: 100%;
+  height: 100%;
 }
