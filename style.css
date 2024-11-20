@@ -1,57 +1,45 @@
-/* Global reset for margin and height */
+/* Reset body margin and ensure the background image is centered and covers the whole viewport */
 body {
   margin: 0;
+  padding: 0;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
   background: url('Background.png') no-repeat center center;
-  background-size: cover;
+  background-size: cover; /* Ensures the background image covers the entire viewport */
   background-attachment: fixed; /* Keeps the background fixed during scroll */
-  background-position: center; /* Center the background image */
 }
 
-/* Style for the window container */
+/* Style for the window container using grid to divide the space into tiles */
 .window {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3 columns */
-  grid-template-rows: repeat(2, 1fr); /* 2 rows */
-  gap: 10px; /* Add spacing between panes */
-  width: 80%; /* Adjust to fit within the background */
-  max-width: 900px;
-  aspect-ratio: 3 / 2; /* Maintain 3:2 aspect ratio for the window */
+  grid-template-columns: repeat(3, 192px); /* 3 columns with 192px width per column */
+  grid-template-rows: repeat(2, 128px); /* 2 rows with 128px height per row */
+  gap: 0; /* No gap between the tiles */
+  width: 576px; /* 3 tiles of 192px width each */
+  height: 256px; /* 2 tiles of 128px height each */
   z-index: 1; /* Keeps window above the background */
 }
 
 /* Style for each pane */
 .pane {
   position: relative;
-  overflow: hidden;
-  border: 2px solid white; /* Optional: border around panes */
-  background: rgba(255, 255, 255, 0.5); /* Light background for empty panes */
-  display: flex;
-  justify-content: center; /* Centers the link horizontally */
-  align-items: center; /* Centers the link vertically */
-  height: 100%; /* Ensures the pane takes full height */
+  overflow: hidden; /* Ensures images do not overflow their containers */
 }
 
 /* Style for the link container */
 .pane a {
   display: block;
-  width: 80%; /* Image container will take up 80% of the pane's width */
-  height: 80%; /* Image container will take up 80% of the pane's height */
-  text-align: center; /* Ensures content inside the link is centered */
+  width: 100%; /* Makes the link fill the entire pane */
+  height: 100%; /* Makes the link fill the entire pane */
+  text-decoration: none; /* Removes any underline or text decoration */
 }
 
 /* Style for the images */
 .pane img {
-  width: 100%; /* The image will take up the full width of the container */
-  height: 100%; /* The image will take up the full height of the container */
-  object-fit: contain; /* Ensure the image fits inside the container without distortion */
-  transition: transform 0.3s ease; /* Smooth zoom effect on hover */
-}
-
-/* Hover effect for images */
-.pane img:hover {
-  transform: scale(1.1); /* Slight zoom on hover */
+  width: 100%; /* Makes the image fill the width of the pane */
+  height: 100%; /* Makes the image fill the height of the pane */
+  object-fit: cover; /* Ensures the image covers the space without distortion */
+  display: block; /* Ensures the image does not have extra space around it */
 }
