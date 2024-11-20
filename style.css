@@ -1,12 +1,14 @@
-/* Style for body to set background image */
+/* Global reset for margin and height */
 body {
   margin: 0;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background: url('https://raw.githubusercontent.com/your-username/your-repository/branch-name/Background.png') no-repeat center center;
+  background: url('Background.png') no-repeat center center;
   background-size: cover;
+  background-attachment: fixed; /* Keeps the background fixed during scroll */
+  background-position: center; /* Center the background image */
 }
 
 /* Style for the window container */
@@ -16,8 +18,9 @@ body {
   grid-template-rows: repeat(2, 1fr); /* 2 rows */
   gap: 10px; /* Add spacing between panes */
   width: 80%; /* Adjust to fit within the background */
-  max-width: 800px;
+  max-width: 900px;
   aspect-ratio: 3 / 2; /* Maintain 3:2 aspect ratio for the window */
+  z-index: 1; /* Keeps window above the background */
 }
 
 /* Style for each pane */
@@ -26,24 +29,28 @@ body {
   overflow: hidden;
   border: 2px solid white; /* Optional: border around panes */
   background: rgba(255, 255, 255, 0.5); /* Light background for empty panes */
+  display: flex;
+  justify-content: center; /* Centers the content horizontally */
+  align-items: center; /* Centers the content vertically */
+}
+
+/* Style for the images inside the link container */
+.pane a {
+  display: block;
+  width: 80%; /* Controls the size of the images relative to the pane */
+  height: 80%; /* Controls the size of the images relative to the pane */
+  text-align: center; /* Centers text if needed (useful for any additional elements) */
 }
 
 /* Style for the images */
 .pane img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* Ensures the image covers the pane without distortion */
+  width: 100%; /* The image will take up the full width of the container */
+  height: 100%; /* The image will take up the full height of the container */
+  object-fit: contain; /* Ensure the image fits inside the container without distortion */
   transition: transform 0.3s ease; /* Smooth zoom effect on hover */
 }
 
 /* Hover effect for images */
 .pane img:hover {
   transform: scale(1.1); /* Slight zoom on hover */
-}
-
-/* Ensure links fill the panes */
-.pane a {
-  display: block;
-  width: 100%;
-  height: 100%;
 }
