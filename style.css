@@ -18,7 +18,7 @@ body {
   gap: 0;
   position: absolute;
   top: 20%; /* Adjust this based on your desired position */
-  left: 20%; /* Adjust this based on your desired position */
+  left: 15%; /* Adjust this based on your desired position */
   width: 576px;  /* 3 columns of 192px */
   height: 384px; /* 2 rows of 128px */
   z-index: 1;
