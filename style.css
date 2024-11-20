@@ -9,17 +9,21 @@ body {
   background: url('Background.png') no-repeat center center;
   background-size: cover; /* Ensures the background image covers the entire viewport */
   background-attachment: fixed; /* Keeps the background fixed during scroll */
+  overflow: hidden; /* Prevents scrollbars from appearing */
 }
 
-/* Style for the window container using grid to divide the space into tiles */
+/* Window styling to fit the background image with the appropriate aspect ratio */
 .window {
   display: grid;
   grid-template-columns: repeat(3, 192px); /* 3 columns with 192px width per column */
   grid-template-rows: repeat(2, 128px); /* 2 rows with 128px height per row */
   gap: 0; /* No gap between the tiles */
-  width: 576px; /* 3 tiles of 192px width each */
-  height: 256px; /* 2 tiles of 128px height each */
+  width: 100vw; /* Full viewport width */
+  height: calc(100vw * (9 / 16)); /* Maintain a 16:9 aspect ratio */
+  max-width: 100%; /* Prevents window from exceeding the width */
+  max-height: 100%; /* Prevents window from exceeding the height */
   z-index: 1; /* Keeps window above the background */
+  position: relative; /* Keeps window in its own context */
 }
 
 /* Style for each pane */
