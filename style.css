@@ -18,12 +18,10 @@ body {
   grid-template-columns: repeat(3, 192px); /* 3 columns with 192px width per column */
   grid-template-rows: repeat(2, 128px); /* 2 rows with 128px height per row */
   gap: 0; /* No gap between the tiles */
-  width: 100vw; /* Full viewport width */
-  height: calc(100vw * (9 / 16)); /* Maintain a 16:9 aspect ratio */
-  max-width: 100%; /* Prevents window from exceeding the width */
-  max-height: 100%; /* Prevents window from exceeding the height */
-  z-index: 1; /* Keeps window above the background */
+  width: 576px; /* Fixed width for 3 columns of 192px each */
+  height: 384px; /* Fixed height for 2 rows of 128px each */
   position: relative; /* Keeps window in its own context */
+  z-index: 1; /* Keeps window above the background */
 }
 
 /* Style for each pane */
