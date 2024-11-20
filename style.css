@@ -30,16 +30,17 @@ body {
   border: 2px solid white; /* Optional: border around panes */
   background: rgba(255, 255, 255, 0.5); /* Light background for empty panes */
   display: flex;
-  justify-content: center; /* Centers the content horizontally */
-  align-items: center; /* Centers the content vertically */
+  justify-content: center; /* Centers the link horizontally */
+  align-items: center; /* Centers the link vertically */
+  height: 100%; /* Ensures the pane takes full height */
 }
 
-/* Style for the images inside the link container */
+/* Style for the link container */
 .pane a {
   display: block;
-  width: 80%; /* Controls the size of the images relative to the pane */
-  height: 80%; /* Controls the size of the images relative to the pane */
-  text-align: center; /* Centers text if needed (useful for any additional elements) */
+  width: 80%; /* Image container will take up 80% of the pane's width */
+  height: 80%; /* Image container will take up 80% of the pane's height */
+  text-align: center; /* Ensures content inside the link is centered */
 }
 
 /* Style for the images */
