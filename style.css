@@ -16,12 +16,11 @@ body {
   grid-template-columns: repeat(3, 192px);
   grid-template-rows: repeat(2, 128px);
   gap: 0;
-  width: 576px;
-  height: 384px;
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  top: 20%; /* Adjust this based on your desired position */
+  left: 20%; /* Adjust this based on your desired position */
+  width: 576px;  /* 3 columns of 192px */
+  height: 384px; /* 2 rows of 128px */
   z-index: 1;
 }
 
