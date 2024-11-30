@@ -12,7 +12,7 @@ body {
 
 .container {
   position: relative;
-  width: 100%;
+  width: 100%; /* Matches the background */
   height: 100%;
 }
 
