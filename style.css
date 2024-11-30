@@ -1,42 +1,38 @@
 body {
-    margin: 0;
-    padding: 0;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: white; /* Keeps a clean borderless background */
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: url('Background.png') no-repeat center center;
+  background-size: cover;
+  overflow: hidden;
 }
 
 .container {
-    position: relative;
-    width: 1920px; /* Match the resolution of your background image */
-    height: 1080px; /* Match the resolution of your background image */
+  position: relative;
+  width: 100%;
+  height: 100%;
 }
 
 .background {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Ensures the background image fits the container */
-    z-index: 1; /* Background is below the panes */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
 }
 
 .pane {
-    position: absolute;
-    z-index: 2; /* Panes sit above the background */
-    overflow: hidden;
-}
-
-.pane a {
-    display: block;
-    width: 100%;
-    height: 100%;
+  position: absolute;
 }
 
 .pane img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Ensures the image fills the pane without distortion */
-    display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
