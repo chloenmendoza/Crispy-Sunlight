@@ -7,7 +7,6 @@ body {
   height: 100vh;
   background: url('Background.png') no-repeat center center;
   background-size: cover;
-  overflow: hidden;
 }
 
 
