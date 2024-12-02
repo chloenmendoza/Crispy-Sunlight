@@ -6,7 +6,6 @@ let floorboardAudio; // To hold the floorboard audio
 function preload() {
   video = createVideo("creeps.mp4"); // Load the video file
   creepAudio = document.getElementById("creeps-audio"); // Get the "creeps.mp3" audio element
-  floorboardAudio = document.getElementById("floorboard-audio"); // Get the "floorboard.mp3" audio element
 }
 
 function setup() {
