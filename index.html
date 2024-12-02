@@ -1,33 +1,185 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Crispy</title>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/x-icon" href="favicon.png">
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="style.css" type="text/css">
+    <title>Crispy</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            margin: 0;
+            height: 100vh;
+            background-image: url('wallpaper.webp');
+            background-repeat: repeat;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        .curtain-container {
+            position: relative;
+            width: 640px;
+            height: 400px;
+            margin-bottom: 10px;
+        }
+
+        .curtain-rod {
+            position: absolute;
+            top: -20px;
+            width: 640px;
+            height: 10px;
+            background-color: brown;
+            z-index: 3; /* Above everything */
+        }
+
+        .curtain-circle {
+            position: absolute;
+            top: -25px;
+            width: 20px;
+            height: 20px;
+            background-color: brown;
+            border-radius: 50%;
+            z-index: 3;
+        }
+
+        .curtain-circle.left {
+            left: -10px;
+        }
+
+        .curtain-circle.right {
+            right: -10px;
+        }
+
+        .curtain {
+            position: absolute;
+            top: 0;
+            width: 50%;
+            height: 400px;
+            background-color: #d1b48c;
+            background-image: repeating-linear-gradient(
+                to right,
+                rgba(0, 0, 0, 0.2),
+                rgba(0, 0, 0, 0.2) 10px,
+                rgba(255, 255, 255, 0) 20px
+            );
+            box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2);
+            border-top-left-radius: 15px;
+            border-bottom-left-radius: 15px;
+            z-index: 2; /* Above window, but below plant */
+            transition: transform 0.5s ease;
+        }
+
+        .curtain.left {
+            left: 0;
+            transform: translateX(0);
+            border-top-right-radius: 15px;
+            border-bottom-right-radius: 15px;
+        }
+
+        .curtain.right {
+            right: 0;
+            transform: translateX(0);
+            border-top-left-radius: 15px;
+            border-bottom-left-radius: 15px;
+        }
+
+        .curtain-container:hover .curtain.left {
+            transform: translateX(-110%);
+        }
+
+        .curtain-container:hover .curtain.right {
+            transform: translateX(110%);
+        }
+
+        .window {
+            display: grid;
+            grid-template-rows: repeat(3, 1fr);
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            width: 600px;
+            height: 400px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border: 2px solid brown;
+            position: relative;
+            z-index: 1; /* Behind plant and curtains */
+        }
+
+        .pane {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-image: url('glass.webp');
+            background-size: cover;
+            background-repeat: no-repeat;
+            border: 2px solid brown;
+            text-align: center;
+            color: black;
+            text-decoration: none;
+            transition: color 0.3s ease, background-color 0.3s ease;
+        }
+
+        .pane:hover {
+            color: white;
+            background-color: rgba(0, 0, 0, 0.6);
+        }
+
+        .plant {
+            position: absolute;
+            bottom: -30px;
+            left: 30%;
+            transform: translateX(-50%);
+            width: 100px; /* Resize plant */
+            height: auto;
+            z-index: 1; /* In front of the window, but behind the curtains */
+        }
+
+        .window-sill {
+            width: 640px;
+            height: 20px;
+            background-color: brown;
+            margin-top: 10px;
+        }
+
+        .sill-support {
+            width: 500px;
+            height: 30px;
+            background-color: brown;
+            margin-top: -5px;
+        }
+    </style>
 </head>
 <body>
-    <a href="crispy.html" target="_blank">
-        <img src="1.png" alt="Crispy" class="pane">
-    </a>
-    <a href="dusty.html" target="_blank">
-        <img src="2.png" alt="Dusty" class="pane">
-    </a>
-    <a href="sunlight.html" target="_blank">
-        <img src="3.png" alt="Sunlight" class="pane">
-    </a> <br>
-    <a href="creeps.html" target="_blank">
-        <img src="4.png" alt="Creeps" class="pane">
-    </a>
-    <a href="through.html" target="_blank">
-        <img src="5.png" alt="Through" class="pane">
-    </a>
-    <a href="blinds.html" target="_blank">
-        <img src="6.png" alt="Blinds" class="pane">
-    </a>
+    <!-- Curtain Rod with Circles -->
+    <div class="curtain-container">
+        <div class="curtain-rod"></div>
+        <div class="curtain-circle left"></div>
+        <div class="curtain-circle right"></div>
+
+        <!-- Curtains -->
+        <div class="curtain left"></div>
+        <div class="curtain right"></div>
+
+        <!-- Window -->
+        <div class="window">
+            <a href="Crispy.html" class="pane">Crispy</a>
+            <a href="Dusty.html" class="pane">Dusty</a>
+            <a href="Sunlight.html" class="pane">Sunlight</a>
+            <a href="Creeps.html" class="pane">Creeps</a>
+            <a href="ThroughThe.html" class="pane">Through The</a>
+            <a href="WindowBlinds.html" class="pane">Window Blinds</a>
+        </div>
+
+        <!-- Plant -->
+        <a href="plant.html">
+            <img src="plant1.png" alt="Plant" class="plant">
+        </a>
+    </div>
+
+    <!-- Window Sill -->
+    <div class="window-sill"></div>
+
+    <!-- Sill Support -->
+    <div class="sill-support"></div>
 </body>
 </html>
