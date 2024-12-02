@@ -54,7 +54,6 @@ class Pollen {
 }
 
 function mousePressed() {
-    // Unlock the audio context on the first user interaction
     if (!sound.isPlaying() && getAudioContext().state !== 'running') {
         getAudioContext().resume();
     }
@@ -63,9 +62,9 @@ function mousePressed() {
         let d = dist(mouseX, mouseY, p.x, p.y);
         if (d < p.size / 2) {
             if (sound.isLoaded()) {
-                sound.play(); // Play sound
+                sound.play(); 
             }
-            p.x = random(width); // Randomly reposition particle
+            p.x = random(width); 
             p.y = random(height);
         }
     }
