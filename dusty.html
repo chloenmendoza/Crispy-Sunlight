@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Dusty</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="dusty.css">
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <nav>
+    <ul>
+      <li><a href="placeholder.html">Go Back to Main Page</a></li>
+    </ul>
+  </nav>
+
+  <!-- Background video element -->
+  <video id="video-background" autoplay muted loop>
+    <source src="dusty.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+
+  <!-- Instruction dialog -->
+  <div id="instruction-dialog" onclick="hideInstructions()">
+    Click to pour dust, press Delete/Backspace to remove dust
+  </div>
+
+  <!-- p5.js canvas will be inserted here -->
+  <script src="p5/p5.min.js"></script>
+  
+  <!-- Audio element for the pouring sound -->
+  <audio id="pour-audio" src="pour.wav" preload="auto"></audio>
+
+  <!-- Link to your p5.js code -->
+  <script src="dusty.js"></script>  
+</body>
+</html>
