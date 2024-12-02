@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRISPY</title>
+    <link rel="stylesheet" href="crispy.css"> <!-- Link to external CSS -->
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
+            padding: 0;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Background video styling */
+        video#background-video {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1; /* Keeps the video in the background */
+            opacity: 0.4; /* Adjust opacity for better readability */
+        }
+
+       /* Style the header */
+header {
+  background-color: sandybrown;
+  padding: 10px;
+  text-align: center;
+  font-size: 35px;
+  color: whitesmoke;
+}
+        
+        /* Style the list inside the menu */
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            background-color: #40454d;
+        }
+
+        /* Clear floats after the columns */
+        section::after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        /* Style the footer */
+        footer {
+            background-color: sandybrown;
+            padding: 10px;
+            text-align: center;
+            color: white;
+        }
+
+        /* Responsive layout - makes the two columns/boxes stack on top of each other instead of next to each other, on small screens */
+        @media (max-width: 600px) {
+            nav,
+            article {
+                width: 100%;
+                height: auto;
+            }
+        }
+
+        /* Content on top of the video */
+        .content {
+            position: relative;
+            z-index: 1;
+            padding: 20px;
+            text-align: center;
+        }
+
+        img {
+            width: 100%;
+            max-width: 600px;
+            display: block;
+            margin: auto;
+            border-radius: 10px;
+        }
+
+        a { 
+            color: white;
+        }
+        
+    </style>
+</head>
+
+
+<body>
+    <!-- Video Background -->
+    <video id="background-video" autoplay muted loop>
+        <source src="chicken.mov" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    
+    <header>
+        <h1>CRISPY</h1>
+        <li><a href="index.html"> Home Page </a></li>
+    </header>
+
+    <div class="content">
+        <img src="CRISPY.png" alt="Chicken and waffles with syrup">
+    </div>
+
+    <audio><source src="sizzling.wav" autoplay="autoplay" loop="loop"></audio>
+
+    <footer>
+        <p>&copy; 2024 BY ARIANA VALDEZ</p>
+        <p>Contact: aria.v00@gmail.com</p>
+    </footer>
+</body>
+
+</html>
