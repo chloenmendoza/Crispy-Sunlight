@@ -1,4 +1,3 @@
-<!--ASTU 3703 Final December 2024-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -166,10 +165,58 @@
             background-color: brown;
             margin-top: -5px;
         }
+
+        .cat {
+            position: absolute;
+            width: 300px;
+            height: auto;
+            left: 70%;
+            top: 80%;
+            z-index: 2;
+        }
+        .floor {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 100px; 
+            background: linear-gradient(
+                to right,
+                #8B4513 0%,
+                #A0522D 25%,
+                #8B4513 50%,
+                #A0522D 75%,
+                #8B4513 100%
+            ); 
+            background-size: 50px 100%; 
+            z-index: 0; 
+        }
+
     </style>
 </head>
 <body>
-    <!-- Curtain Rod with Circles -->
+    <!-- Audio -->
+    <audio id="background-audio">
+        <source src="theelevator.wav" type="audio/wav">
+        Your browser does not support the audio element.
+    </audio>
+    <button id="play-audio-button" style="display: none;">Play Audio</button>
+    
+
+    <script>
+window.addEventListener("load", () => {
+    const audio = document.getElementById("background-audio");
+
+    audio.play().catch(() => {
+        console.log("Autoplay blocked. Waiting for click interaction.");
+
+        document.addEventListener("click", () => {
+            audio.play();
+            console.log("Audio started after user click.");
+        }, { once: true }); 
+    });
+});
+    </script>
+
     <div class="curtain-container">
         <div class="curtain-rod"></div>
         <div class="curtain-circle left"></div>
