@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/x-icon" href="favicon.png">
     <title>Crispy</title>
     <style>
         body {
@@ -16,6 +15,7 @@
             background-image: url('wallpaper.webp');
             background-repeat: repeat;
             font-family: 'Courier New', Courier, monospace;
+            position: relative;
         }
 
         .curtain-container {
@@ -31,7 +31,7 @@
             width: 640px;
             height: 10px;
             background-color: brown;
-            z-index: 3; /* Above everything */
+            z-index: 3; 
         }
 
         .curtain-circle {
@@ -67,7 +67,7 @@
             box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2);
             border-top-left-radius: 15px;
             border-bottom-left-radius: 15px;
-            z-index: 2; /* Above window, but below plant */
+            z-index: 2; 
             transition: transform 0.5s ease;
         }
 
@@ -103,7 +103,7 @@
             background-color: rgba(255, 255, 255, 0.8);
             border: 2px solid brown;
             position: relative;
-            z-index: 1; /* Behind plant and curtains */
+            z-index: 1; 
         }
 
         .pane {
@@ -130,9 +130,26 @@
             bottom: -30px;
             left: 30%;
             transform: translateX(-50%);
-            width: 100px; /* Resize plant */
+            width: 100px; 
             height: auto;
-            z-index: 1; /* In front of the window, but behind the curtains */
+            z-index: 1; 
+        }
+
+        .plant2 {
+            position: absolute;
+            left: -55%;
+            width: 400px;
+            height: auto;
+            bottom: -60%;
+            z-index: 2;
+        }
+
+        .clock {
+            position: absolute;
+            width: 150px;
+            height: auto;
+            left: 115%;
+            bottom: 30%;
         }
 
         .window-sill {
@@ -148,11 +165,50 @@
             background-color: brown;
             margin-top: -5px;
         }
+
+        .floor {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 100px; 
+            background: linear-gradient(
+                to right,
+                #8B4513 0%,
+                #A0522D 25%,
+                #8B4513 50%,
+                #A0522D 75%,
+                #8B4513 100%
+            ); 
+            background-size: 50px 100%; 
+            z-index: 0; 
+        }
+
     </style>
-      <script src="p5.js"></script>
-  <script src="p5.min.js" defer></script>
 </head>
 <body>
+    <!-- Audio -->
+    <audio id="background-audio">
+        <source src="theelevator.wav" type="audio/wav">
+        Your browser does not support the audio element.
+    </audio>
+    <button id="play-audio-button" style="display: none;">Play Audio</button>
+    
+
+    <script>
+window.addEventListener("load", () => {
+    const audio = document.getElementById("background-audio");
+
+    audio.play().catch(() => {
+        console.log("Autoplay blocked. Waiting for click interaction.");
+
+        document.addEventListener("click", () => {
+            audio.play();
+            console.log("Audio started after user click.");
+        }, { once: true }); 
+    });
+});
+    </script>
+
     <!-- Curtain Rod with Circles -->
     <div class="curtain-container">
         <div class="curtain-rod"></div>
@@ -165,18 +221,21 @@
 
         <!-- Window -->
         <div class="window">
-            <a href="crispy.html" class="pane">Crispy</a>
-            <a href="dusty.html" class="pane">Dusty</a>
+            <a href="Crispy.html" class="pane">Crispy</a>
+            <a href="Dusty.html" class="pane">Dusty</a>
             <a href="Sunlight.html" class="pane">Sunlight</a>
-            <a href="creeps.html" class="pane">Creeps</a>
+            <a href="Creeps.html" class="pane">Creeps</a>
             <a href="ThroughThe.html" class="pane">Through The</a>
-            <a href="window.html" class="pane">Window Blinds</a>
+            <a href="WindowBlinds.html" class="pane">Window Blinds</a>
         </div>
 
         <!-- Plant -->
-        <a href="https://fishse.github.io/GitHub/">
+        <a href="plant.html">
             <img src="plant1.png" alt="Plant" class="plant">
         </a>
+
+        <img src="plant2.png" alt="house plant" class="plant2">
+        <img src="clock.png" alt="clock" class="clock">
     </div>
 
     <!-- Window Sill -->
@@ -184,5 +243,8 @@
 
     <!-- Sill Support -->
     <div class="sill-support"></div>
+
+    <!-- Floor -->
+    <div class="floor"></div>
 </body>
 </html>
