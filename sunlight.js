@@ -24,10 +24,9 @@ function setup() {
 function draw() {
     background(0);
 
-    // Dynamic pixelation factor
     let noiseValue = noise(noiseOffset);
     pixelationFactor = map(noiseValue, 0, 1, 10, 50);
-    noiseOffset += 0.0004; // Faster speed for dynamic pixelation
+    noiseOffset += 0.0004; 
 
     displayPixelatedBackground();
 
