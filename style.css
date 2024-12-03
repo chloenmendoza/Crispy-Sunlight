@@ -1,3 +1,8 @@
+html, body 
+{
+    background-color: goldenrod;
+}
+
 canvas 
 {
     width: 100vw !important;
